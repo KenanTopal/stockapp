@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import notify from "../utils/notify";
 
-const url = "https://10001.fullstack.clarusway.com";
+const url = "https://13134.fullstack.clarusway.com";
 
 const authSlice = createSlice({
   name: "auth",
@@ -35,7 +35,7 @@ export const login = (userInfo, navigate) => {
       sessionStorage.setItem('admin', res.data.user.is_superuser)
       notify("User Logged in successfully", "success");
       navigate("/stock/dashboard");
-    }catch(err){
+    }catch(err){ 
         console.log(err);
         notify(err.response.request.response, "error");
     }
