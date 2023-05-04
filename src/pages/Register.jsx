@@ -21,7 +21,7 @@ const Register = () => {
     {type: 'password', label: 'Password', name: 'password'},
   ]
 
-  const initalValues = {
+  const initialValues = {
     username: '', 
     first_name:'', 
     last_name: '', 
@@ -30,7 +30,7 @@ const Register = () => {
   }
 
   
-  const resisterSchema = yup.object().shape({
+  const registerSchema = yup.object().shape({
     username: yup.string().required('Username is required'), 
     email: yup.string().email('Email Invalid').required('Email is required'), 
     first_name:yup.string().required('First Name is required'),
@@ -49,7 +49,7 @@ const Register = () => {
   const submitHandler = (values, actions)=> {
     actions.resetForm();
     actions.setSubmitting(false)
-    console.log(values)
+    //console.log(values)
     dispatch(register({...values, password2: values.password}, navigate))
   }
   return (
@@ -64,7 +64,7 @@ const Register = () => {
             <Card sx={{maxWidth:'100%', padding:'2rem'}}>
               <CardContent>
                 <Typography variant='h3' align='center' mb={3}> Register </Typography>
-                <Formik initialValues={initalValues} onSubmit={submitHandler} validationSchema={resisterSchema}>
+                <Formik initialValues={initialValues} onSubmit={submitHandler} validationSchema={registerSchema}>
 
                   {({errors, touched})=>(
                     <Form>
