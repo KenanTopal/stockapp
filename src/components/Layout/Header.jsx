@@ -12,7 +12,7 @@ import {uiActions} from '../../store/uiSlice'
 const drawerWidth = 240;
 
 
-const AppBar = styled(MuiAppBar)(({theme, open})=>({
+const AppBar = styled(MuiAppBar, {shouldForwardProp: (prop)=>prop !== 'open' })(({theme, open})=>({
   zIndex: theme.zIndex.drawer+1,
   transition: theme.transitions.create('width',{
     easing: theme.transitions.easing.sharp,
@@ -50,7 +50,7 @@ const Header = () => {
           {currentUser&& <Avatar alt={currentUser.toUpperCase()} src='/broken-image.jpg' />}
         </Typography>
         {currentUser && (
-          <Menu open={anchorElement} anchorOrigin={{vertical:'top', horizontal:'right'}} keepMounted transformOrigin={{vertical:'top', horizontal:'right'}}>
+          <Menu anchorEl={anchorElement} open={Boolean(anchorElement)} anchorOrigin={{vertical:'top', horizontal:'right'}} keepMounted transformOrigin={{vertical:'top', horizontal:'right'}} onClose={()=> setAnchorElement(null)}>
             <MenuItem onClick={()=>dispatch(logout(navigate))}>Logout</MenuItem>
           </Menu>
         )}
