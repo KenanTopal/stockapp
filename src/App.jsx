@@ -1,12 +1,23 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
 import {Login, Register, Dashboard, Categories, Firms, Sales, Brands} from './pages';
 import Products from './pages/Products';
+import {getData, getTransactions} from './store/stock/stockActions'
 
 import PrivateRouter from './PrivateRouter';
+import { useDispatch } from 'react-redux';
 
 const App = () => {
+
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    dispatch(getData('categories'))
+    dispatch(getData('brands'))
+    dispatch(getData('products'))
+    dispatch(getTransactions())
+  }, [])
+
   return (
 
     <Routes>

@@ -31,6 +31,7 @@ const SideMenu = () => {
         color: "white",
         height: "100%",
         width: "100%",
+
       }}
     >
       {menu.map((menuItem, index) => (
@@ -38,7 +39,7 @@ const SideMenu = () => {
           key={index.toString()}
           onClick={() => navigate(menuItem.path)}
         >
-          <ListItemIcon sx={{ color: "white" }} titl={menuItem.title}>
+          <ListItemIcon sx={{ color: "white" }} title={menuItem.title}>
             {menuItem.icon}
           </ListItemIcon>
           <ListItemText primary={menuItem.title} />

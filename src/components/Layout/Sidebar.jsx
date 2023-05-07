@@ -44,4 +44,3 @@ const Sidebar = () => {
 
 export default Sidebar;
 
-1.27

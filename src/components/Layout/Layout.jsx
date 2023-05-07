@@ -1,9 +1,8 @@
 import React from "react";
 import Sidebar from "./Sidebar";
-
 import Header from "./Header";
-import { Outlet } from "react-router-dom";
 import { Box, Toolbar } from "@mui/material";
+import { Outlet } from "react-router-dom";
 
 const Layout = () => {
   return (
@@ -15,8 +14,10 @@ const Layout = () => {
         component="main"
         sx={{ flexGrow: 1, height: "100vh", overflow: "auto", width: "100%" }}
       >
-        <Toolbar />
-        <Outlet />
+        <Toolbar/>
+          <Outlet/>
+       
+        
       </Box>
     </Box>
   );
