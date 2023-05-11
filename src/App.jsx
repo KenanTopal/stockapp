@@ -16,7 +16,7 @@ const App = () => {
     dispatch(getData('brands'))
     dispatch(getData('products'))
     dispatch(getTransactions())
-  }, [])
+  }, [dispatch])
 
   return (
 
