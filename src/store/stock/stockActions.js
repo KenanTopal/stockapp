@@ -2,7 +2,7 @@ import axios from "axios";
 import notify from "../../utils/notify";
 import { stockActions } from "./stockSlice";
 
-const url = "https://10001.fullstack.clarusway.com";
+const url = "https://13134.fullstack.clarusway.com";
 
 export const getData = (type) => {
   return async (dispatch) => {
