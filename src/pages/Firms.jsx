@@ -6,6 +6,8 @@ import Page from "../components/UI/Page";
 import UiCard from "../components/UI/UiCard";
 import UiModal from "../components/UI/UiModal";
 import { uiActions } from "../store/uiSlice";
+import cw from '../assets/cw.jpeg';
+
 
 const Firms = () => {
   const firms = useSelector((state) => state.stock.firms);
@@ -24,6 +26,8 @@ const Firms = () => {
     request = { endpoint: "firms", to: "/stock/firms", edit: true };
   else request = { endpoint: "firms", to: "/stock/firms", edit: false };
 
+
+
   return (
     <Page title="Firms" btnCaption="Add Firm">
       <Grid container spacing={3}>
@@ -33,7 +37,7 @@ const Firms = () => {
               <Box p={2}>
                 <CardMedia
                   component="img"
-                  image={item.image}
+                  image={item.image? item.image: cw}
                   height="325"
                   width="250"
                   title={item.name}
