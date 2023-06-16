@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
-import {Login, Register, Dashboard, Categories, Firms, Sales, Brands} from './pages';
-import Products from './pages/Products';
-import {getData, getTransactions} from './store/stock/stockActions'
+import {Login, Register, Dashboard, Categories, Firms, Sales, Brands, Products} from './pages';
+import {getData, getTransactions} from './store/stock/stockActions';
 
 import PrivateRouter from './PrivateRouter';
-import { useDispatch } from 'react-redux';
+
 
 const App = () => {
 
@@ -14,9 +14,13 @@ const App = () => {
   useEffect(()=>{
     dispatch(getData('categories'))
     dispatch(getData('brands'))
+    dispatch(getData('firms'))
     dispatch(getData('products'))
+    dispatch(getData('sales'))
     dispatch(getTransactions())
-  }, [dispatch])
+// eslint-disable-next-line 
+  }, [])
+
 
   return (
 

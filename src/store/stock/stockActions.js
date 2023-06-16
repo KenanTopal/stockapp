@@ -25,6 +25,9 @@ export const getData = (type) => {
           case "categories":
             dispatch(stockActions.getCategories(res.data));
             break;
+          case 'sales':
+            dispatch(stockActions.getSales(res.data));
+            break;
           default:
             return null;
         }
